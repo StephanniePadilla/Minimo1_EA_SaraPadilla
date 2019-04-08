@@ -36,7 +36,7 @@ export class AsignaturasComponent implements OnInit {
    * @param id
    */
   confirmDelete(id: string, i: number) {
-    if(confirm('El alumno se borrará')){
+    if(confirm('La estación se borrará')){
       this.asignaturaService.deleteAsignatura(id)
         .subscribe(
           res =>{

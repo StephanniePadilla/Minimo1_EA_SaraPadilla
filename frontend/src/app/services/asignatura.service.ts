@@ -37,5 +37,7 @@ export class AsignaturaService {
   getBicisdeEstacion(_id: string) :Observable<Asignaturas> {
     return this.http.get<Asignaturas>(this.environment.urlRelacion + '/listaAlumnos' + `/${_id}`);
   }
+  //listas alumnos de una asignatura
+  //api.get('/relacion/listaAlumnos/:asignaturaId', asignaturaCtrl.getAlumnosdeAsignatura)
 
 }
