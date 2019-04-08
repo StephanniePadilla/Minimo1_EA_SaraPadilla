@@ -1,12 +1,12 @@
 'use strict'
 
-const Asignatura = require('../modelos/asignaturas')
-const Alumno = require('../modelos/alumnos')
+const Station = require('../modelos/stations')
+const Bike = require('../modelos/bikes')
 
 //funciones
 //listado de asignaturas
 function getAsignaturas(req, res) {
-    Asignatura.find({ }, (err, asignaturas) => {
+    Station.find({ }, (err, asignaturas) => {
         if (err) return res.status(500).send( `Error al realizar la petición a ala base de datos: ${err} `)
         if (!asignaturas) return res.status(404).send('No hay asignaturas')
         res.status(200).send(asignaturas)
@@ -16,8 +16,8 @@ function getAsignaturas(req, res) {
 //listado de asignaturas con estudiantes
 function getAsignaturasconalumnos(req, res) {
     //busca todos los usuarios, claudator vacio
-    Asignatura.find({ }, (err, asignaturasconalumnos) => { //l'array de productes no m'ho dona
-      Alumno.populate(asignaturasconalumnos, {path: "alumno"}, (err, asignaturasconalumnos) =>{
+    Station.find({ }, (err, asignaturasconalumnos) => { //l'array de productes no m'ho dona
+      Bike.populate(asignaturasconalumnos, {path: "alumno"}, (err, asignaturasconalumnos) =>{
         if (err) return res.status(500).send({message: `Error al realizar la petición: ${err}`})
         if (!asignaturasconalumnos) return res.status(404).send({message: 'No existen asignaturas en la bbdd'})
         //se envia una respuesta en res, la respuesta sera un json de producto
@@ -31,7 +31,7 @@ function getAsignaturasconalumnos(req, res) {
 
 //guardar asignaturas
 function saveAsignatura (req, res){
-    let asignatura = new Asignatura({
+    let asignatura = new Station({
         name: req.body.name
     });
     console.log(asignatura)
@@ -48,7 +48,7 @@ function saveAsignatura (req, res){
 //detalle de las asignaturas una por una
 function getAsignatura(req, res) {
     let asignaturaId = req.params.asignaturaId
-    Asignatura.findById(asignaturaId,(err, asignatura) => {
+    Station.findById(asignaturaId,(err, asignatura) => {
         if (err) return res.status(500).send(`Error al realizar la petición: ${err} `)
         if (!asignatura) return res.status(404).send(`La asignatura no existe`)
         res.status(200).send({ asignatura })
@@ -58,7 +58,7 @@ function getAsignatura(req, res) {
 //ver alumno que pertenece a una asignatura
 function getAlumno(req, res) {
     let alumnoId = req.params.alumnoId
-    Asignatura.findById(alumnoId, (err,alumno) => {
+    Station.findById(alumnoId, (err, alumno) => {
         if (err) return res.status(500).send(`Error al realizar la petición: ${err} `)
         if (!alumno) return res.status(404).send(`el alumno no esta en la asignatura`)
         res.status(200).send({alumno})
@@ -69,7 +69,7 @@ function getAlumno(req, res) {
 function getAlumnosdeAsignatura(req, res) {
     let asignaturaId = req.params.asignaturaId
 
-    Asignatura.findById({_id: asignaturaId}, (err, result) => {
+    Station.findById({_id: asignaturaId}, (err, result) => {
         console.log(result.alumnos)
         //console.log(alumnos)
         if(err) return res.status(500).send(`Error al realizar la petición: ${err} `)
@@ -79,13 +79,13 @@ function getAlumnosdeAsignatura(req, res) {
         console.log(arraydeIds)
         arraydeIds.forEach(element => {
             console.log(element)
-            Alumno.findById({_id: element}, (err, alumnos) => {
+            Bike.findById({_id: element}, (err, alumnos) => {
                 if(err) return res.status(500).send(`Error al realizar la petición: ${err} `)
                 
                 return res.status(200).send(element)
             })
         });*/
-        //Alumno.findById({_id: result.alumnos}, (err, alumnos) => {
+        //Bike.findById({_id: result.alumnos}, (err, alumnos) => {
 
         //})
     })
@@ -98,7 +98,7 @@ function addAlumno (req, res) {
     let alumnoId = req.params.alumnoId
     console.log(req.params.alumnoId)
 
-    Asignatura.update({_id: asignaturaId}, {"$push": {"alumnos": alumnoId}}, (err, result) => {
+    Station.update({_id: asignaturaId}, {"$push": {"alumnos": alumnoId}}, (err, result) => {
         console.log(result)
         if(err) res.status(500).send(`Error al actualizar la asignatura: ${err}`)
         if(!result) return res.status(404).send('La asignatura no esta en la bbdd')

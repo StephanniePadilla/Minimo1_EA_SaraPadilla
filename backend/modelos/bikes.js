@@ -5,10 +5,10 @@ const bcrypt = require('bcrypt-nodejs')
 const crypto = require('crypto')
 
 //esquema del alumno
-const AlumnosSchema  = new Schema({
+const BikesSchema  = new Schema({
     name: {type: String,unique: true},
-    address: String, 
-    phones: [{casa: String, movil: String}]
+    kms: { type: Number, default:0 },
+    description: String
 
 })
 /*  //encriptacion de datos 
@@ -23,4 +23,4 @@ AlumnosSchema.pre('save', (next) => {
     })
 })
 */
-module.exports = mongoose.model('alumnos', AlumnosSchema)
+module.exports = mongoose.model('bikes', BikesSchema)

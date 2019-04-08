@@ -1,11 +1,15 @@
 export class Asignaturas {
     _id: string;
     name: string;
-    alumnos:string;  
+    state: string;
+    description: string;
+    bikes: string;  
 
-    constructor(_id='',name ='', alumnos =''){
+    constructor(_id: string ='',name: string ='',state: string ='',description: string ='', bikes: string =''){
         this._id = _id;
         this.name = name;
-        this.alumnos = alumnos;
+        this.state = state;
+        this.description = description;
+        this.bikes = bikes;
     }
 }

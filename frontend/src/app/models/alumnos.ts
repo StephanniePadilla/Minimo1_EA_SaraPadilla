@@ -1,15 +1,14 @@
 export class Alumnos {
     _id: string;
     name: string;
-    address: string;
-    phone: string //Array<String>;
+    kms: number;
+    description: string;
 
-    constructor(_id: string ='',name: string ='', address: string ='', phone: string =''/*phoneArray: Array<String> = []*/){
+    constructor(_id: string ='',name: string ='', kms = 0 , description: string =''){
         this._id = _id;
         this.name = name;
-        this.address = address;
-        this.phone = phone;
-        //this.phone = phoneArray;
+        this.kms = kms;
+        this.description = description;
     }
 
 }

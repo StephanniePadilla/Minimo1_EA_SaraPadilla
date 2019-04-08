@@ -1,12 +1,36 @@
-<h2>Add new Subject</h2>
+<h2>Add new station</h2>
 <form [formGroup]="newasignaturaForm" (ngSubmit)="addAsignatura ()">
 
   <div class="form-group">
-    <label>Name of the Subject</label>
+    <label>Name of the station</label>
     <input type="text" class="form-control" formControlName="name"/>
     <div class="validation-errors">
       <ng-container *ngFor="let validation of validation_messages.name">
         <div class="alert alert-danger" *ngIf="newasignaturaForm.get('name').hasError(validation.type) && (newasignaturaForm.get('name').dirty || newasignaturaForm.get('name').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>State: available or NA</label>
+    <input type="text" class="form-control" formControlName="state"/>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.name">
+        <div class="alert alert-danger" *ngIf="newasignaturaForm.get('state').hasError(validation.type) && (newasignaturaForm.get('state').dirty || newasignaturaForm.get('state').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <input type="text" class="form-control" formControlName="description"/>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.name">
+        <div class="alert alert-danger" *ngIf="newasignaturaForm.get('description').hasError(validation.type) && (newasignaturaForm.get('description').dirty || newasignaturaForm.get('description').touched)">
           {{ validation.message }}
         </div>
       </ng-container>

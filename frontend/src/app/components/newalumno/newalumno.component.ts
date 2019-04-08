@@ -23,15 +23,12 @@ export class NewalumnoComponent implements OnInit {
         name: new FormControl('', Validators.compose([
           Validators.required,
           Validators.pattern(/.{1,40}$/)])),
-        address: new FormControl('', Validators.compose([
+        kms: new FormControl('', Validators.compose([
           Validators.required,
-          Validators.pattern(/.{1,100}$/)])),
-        homePhone: new FormControl('', Validators.compose([
+          Validators.pattern(/^((?!(0))[0-9]{2,4})$/)])),
+        description: new FormControl('', Validators.compose([
           Validators.required,
-          Validators.pattern(/^((?!(0))[0-9]{9})$/)])),
-        mobilePhone: new FormControl('', Validators.compose([
-          Validators.required,
-          Validators.pattern(/^((?!(0))[0-9]{9})$/)])),
+          Validators.pattern(/.{3,250}$/)])),
       }
     )
   }
@@ -42,17 +39,13 @@ export class NewalumnoComponent implements OnInit {
         { type: 'required', message: 'Name is required'},
         { type: 'pattern', message: 'It has to be between 1 and 40 characters long'}
       ],
-      'address': [
-        { type: 'required', message: 'Address is required'},
-        { type: 'pattern', message: 'It has to be between 1 and 100 characters long'}
+      'price': [
+        { type: 'required', message: 'Price is required'},
+        { type: 'pattern', message: 'It can not begin by a 0 and has to be between 2 and 4 digits long'}
       ],
-      'homePhone': [
-        { type: 'required', message: 'Home phone is required'},
-        { type: 'pattern', message: 'It can not begin by a 0 and has to be 9 digits long'}
-      ],
-      'mobilePhone': [
-        { type: 'required', message: 'Name is required'},
-        { type: 'pattern', message: 'It has to be between 1 and 20 characters long'}
+      'description': [
+        { type: 'required', message: 'Description is required' },
+        { type: 'pattern', message: 'It has to be between 3 and 250 characters long' }
       ]
     }
   }
@@ -62,9 +55,8 @@ export class NewalumnoComponent implements OnInit {
     let alumno = new Alumnos();
     alumno._id = "";
     alumno.name = this.newalumnoForm.value.name;
-    alumno.address = this.newalumnoForm.value.address;
-    alumno.phone = this.newalumnoForm.value.homePhone; //no envia bien el array
-   // alumno.phone = this.newalumnoForm.value.mobilePhone;
+    alumno.kms = this.newalumnoForm.value.kms;
+    alumno.description = this.newalumnoForm.value.description;
 
     this.newalumnoService.addAlumno(alumno)
       .subscribe(

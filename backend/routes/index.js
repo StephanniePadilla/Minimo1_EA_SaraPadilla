@@ -1,8 +1,8 @@
 'use strict'
 
 const express = require('express')
-const asignaturaCtrl = require('../controller/asignaturas')
-const alumnoCtrl = require('../controller/alumnos')
+const asignaturaCtrl = require('../controller/stations')
+const alumnoCtrl = require('../controller/bikes')
 const api = express.Router()
 
 

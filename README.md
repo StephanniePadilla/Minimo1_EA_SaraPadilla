@@ -119,5 +119,5 @@ SOFTWARE.
 ---
 
 ## Author Info
-
+Sara Padilla
 

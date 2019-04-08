@@ -24,6 +24,12 @@ export class NewasignaturaComponent implements OnInit {
         name: new FormControl('', Validators.compose([
           Validators.required,
           Validators.pattern(/.{1,20}$/)])),
+        state: new FormControl('', Validators.compose([
+          Validators.required,
+          Validators.pattern(/.{1,9}$/)])),
+        description: new FormControl('', Validators.compose([
+          Validators.required,
+          Validators.pattern(/.{1,150}$/)])),
       }
     )
   }
@@ -33,6 +39,14 @@ export class NewasignaturaComponent implements OnInit {
       'name': [
         { type: 'required', message: 'Name is required'},
         { type: 'pattern', message: 'It has to be between 1 and 20 characters long'}
+      ],
+      'state': [
+        { type: 'required', message: 'State is required'},
+        { type: 'pattern', message: 'It has to be between 1 and 9 characters long, and has to be either available or NA'}
+      ],
+      'description': [
+        { type: 'required', message: 'Description is required'},
+        { type: 'pattern', message: 'It has to be between 1 and 150 characters long'}
       ]
     }
   }
@@ -42,7 +56,9 @@ export class NewasignaturaComponent implements OnInit {
     let asignatura = new Asignaturas();
     asignatura._id = "";
     asignatura.name = this.newasignaturaForm.value.name;
-    asignatura.alumnos = "";
+    asignatura.state = this.newasignaturaForm.value.state;
+    asignatura.description = this.newasignaturaForm.value.description;
+    asignatura.bikes = "";
 
     this.newasignaturaService.addAsignatura(asignatura)
       .subscribe(

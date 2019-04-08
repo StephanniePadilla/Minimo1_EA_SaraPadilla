@@ -1,5 +1,5 @@
 'use strict'
-const Alumno = require('../modelos/alumnos')
+const Alumno = require('../modelos/bikes')
 
 //funciones
 function listarAlumnos(req, res) {
