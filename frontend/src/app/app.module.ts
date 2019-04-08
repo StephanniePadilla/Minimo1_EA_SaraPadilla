@@ -11,7 +11,8 @@ import { NewasignaturaComponent } from './components/newasignatura/newasignatura
 import { MainComponent } from './components/main/main.component';
 import { NewalumnoComponent } from './components/newalumno/newalumno.component';
 import { AlumnodetalleComponent } from "./components/alumnodetalle/alumnodetalle.component";
-import { AsignaturadetalleComponent } from './asignaturadetalle/asignaturadetalle.component';
+import { AsignaturadetalleComponent } from './components/asignaturadetalle/asignaturadetalle.component';
+import { BicisdeestacionComponent } from './components/bicisdeestacion/bicisdeestacion.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AsignaturadetalleComponent } from './asignaturadetalle/asignaturadetall
     MainComponent,
     NewalumnoComponent,
     AlumnodetalleComponent,
-    AsignaturadetalleComponent
+    AsignaturadetalleComponent,
+    BicisdeestacionComponent
   ],
   imports: [
     BrowserModule,

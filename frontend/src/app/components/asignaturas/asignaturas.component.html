@@ -6,7 +6,7 @@
   <h5>{{asignatura.name}}</h5>
   <p>
     <button class="btn btn-primary  btn-block" [routerLink]="['subjectDetail',asignatura._id]"><i class="fa fa-eye"></i>&nbsp;See Station detail</button>
-    <button class="btn btn-primary  btn-block" [routerLink]="['']"><i class="fa fa-eye"></i> See bikes from this station</button>
+    <button class="btn btn-primary  btn-block" [routerLink]="['subjectBikes', asignatura._id]"><i class="fa fa-eye"></i> See bikes from this station</button>
     <button class="btn btn-primary  btn-block" [routerLink]="['']"><i class="fa fa-clone"></i> Add bike </button>
     <button class="btn btn-danger  btn-block" (click)="confirmDelete(asignatura._id, i)"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete </button>
   </p>
