@@ -1,6 +1,6 @@
 <h2>Bikes unassigned</h2>
 
-<div *ngFor = "let alumno of alumnos; let i=index, let asignatura of asignaturas">
+  <div *ngFor = "let alumno of alumnos; let i=index, let asignatura of asignaturas">
   <input type="hidden" value="{{alumno.name}}">
 
   <p></p>
@@ -9,6 +9,7 @@
 
 </div>
 
-<p><p>
+<p>
+  <button class="logout" [routerLink]="['/subjectList']"><i class="fa fa-toggle-left"></i>&nbsp;Back to all the stations</button>
   <button class="logout" [routerLink]="['']"><i class="fa fa-toggle-left" aria-hidden="true"></i> Back to main menu</button>
-</p><p>
+</p>

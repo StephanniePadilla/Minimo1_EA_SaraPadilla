@@ -1,12 +1,14 @@
 <h2>Station Detail of {{asignatura.name}}</h2>
 
-<div class="card bg-dark text-white">
+<div class="card text-white bg-secondary mb-3">
+  <div class="card-header">{{asignatura.name}}</div>
   <span><img src="http://urbaninfluence.com/images/work/pronto/pronto-icon-bike.min.png"></span>
-  <h2>   {{asignatura.name}}</h2>
-  <p><b>-    Id:</b> {{asignatura._id}}</p>
-  <p><b>-    State:</b> {{asignatura.state}}</p>
-  <p><b>-    Description:</b> {{asignatura.description}}</p>
 
+  <div class="card-body">
+    <p><b>-    Id:</b> {{asignatura._id}} </p>
+    <p><b>-    State:</b> {{asignatura.state}}</p>
+    <p><b>-    Description:</b> {{asignatura.description}}</p>
+  </div>
 </div>
 
 <p><p>
