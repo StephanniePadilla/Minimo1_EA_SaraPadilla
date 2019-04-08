@@ -1,15 +1,16 @@
-<h2>Bike Detail of {{alumno._id}}</h2>
+<h2>Bike Detail of {{alumno.name}}</h2>
 
 <div class="border border-secondary">
-  <span><img src="https://pngimage.net/wp-content/uploads/2018/06/student-logo-png-6.png"></span>
-  <h2>{{alumno._id}}</h2>
-  <p><b>Address:</b> {{alumno.address}}</p>
-  <p><b>Phone:</b> {{alumno.phone}}</p>
+  <span><img src="https://cdn.pixabay.com/photo/2012/04/24/18/13/bicycle-40756_640.png"></span>
+  <h2>{{alumno.name}}</h2>
+  <p><b>Id:</b> {{alumno._id}}</p>
+  <p><b>Kms:</b> {{alumno.kms}}</p>
+  <p><b>Description:</b> {{alumno.description}}</p>
 
 </div>
 
 <p><p>
-  <button class="btn btn-primary btn-block" [routerLink]="['add_Subject']"><i class="fa fa-id-badge"></i>&nbsp;  See my Subjects</button>
+  <button class="btn btn-primary btn-block" [routerLink]="['']"><i class="fa fa-id-badge"></i>&nbsp;  See my stations</button>
 </p>
 
 <p><p>

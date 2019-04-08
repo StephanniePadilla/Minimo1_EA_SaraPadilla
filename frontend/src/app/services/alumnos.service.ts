@@ -13,7 +13,7 @@ export class AlumnosService {
   selectedAlumno: Alumnos; 
 
   constructor( private http: HttpClient) {
-    this.selectedAlumno = new Alumnos("","","","");
+    this.selectedAlumno = new Alumnos("","",0,"");
     this.environment = new Environments();
    }
    //recoger los datos en http 

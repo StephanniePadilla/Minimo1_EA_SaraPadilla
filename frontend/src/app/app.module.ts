@@ -11,6 +11,7 @@ import { NewasignaturaComponent } from './components/newasignatura/newasignatura
 import { MainComponent } from './components/main/main.component';
 import { NewalumnoComponent } from './components/newalumno/newalumno.component';
 import { AlumnodetalleComponent } from "./components/alumnodetalle/alumnodetalle.component";
+import { AsignaturadetalleComponent } from './asignaturadetalle/asignaturadetalle.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AlumnodetalleComponent } from "./components/alumnodetalle/alumnodetalle
     NewasignaturaComponent,
     MainComponent,
     NewalumnoComponent,
-    AlumnodetalleComponent
+    AlumnodetalleComponent,
+    AsignaturadetalleComponent
   ],
   imports: [
     BrowserModule,
