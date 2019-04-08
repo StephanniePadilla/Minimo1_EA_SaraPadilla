@@ -9,6 +9,7 @@ import { NewalumnoComponent } from "./components/newalumno/newalumno.component";
 import { AlumnodetalleComponent } from "./components/alumnodetalle/alumnodetalle.component";
 import { AsignaturadetalleComponent } from "./components/asignaturadetalle/asignaturadetalle.component";
 import { BicisdeestacionComponent } from "./components/bicisdeestacion/bicisdeestacion.component";
+import {AddbikeComponent} from "./components/addbike/addbike.component";
 
 const routes: Routes = [
 
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'studentList', component: AlumnosComponent},
   {path:'studentList/studentDetail/:id', component: AlumnodetalleComponent},
   {path: 'subjectList/subjectDetail/:id', component: AsignaturadetalleComponent},
-  {path: 'subjectList/subjectBikes/:id', component: BicisdeestacionComponent}
+  {path: 'subjectList/subjectBikes/:id', component: BicisdeestacionComponent},
+  {path: 'subjectBikes/:id', component: AddbikeComponent}
 ];
 
 @NgModule({

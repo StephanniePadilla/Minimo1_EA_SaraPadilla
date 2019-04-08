@@ -36,5 +36,10 @@ export class AlumnosService {
   getAlumno(_id: string):Observable<Alumnos> {
     return this.http.get<Alumnos>(this.environment.urlAlumno + `/${_id}`);
   }
+
+  ///relacion/:asignaturaId/:alumnoId
+  addBike(_idStation: string, _idBike: string){
+    return this.http.put(this.environment.urlRelacion + "/relacion" + `/${_idStation}` + `/${_idBike}`, alumno);
+  }
    
 }
