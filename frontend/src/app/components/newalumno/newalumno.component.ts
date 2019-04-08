@@ -57,6 +57,7 @@ export class NewalumnoComponent implements OnInit {
     alumno.name = this.newalumnoForm.value.name;
     alumno.kms = this.newalumnoForm.value.kms;
     alumno.description = this.newalumnoForm.value.description;
+    alumno.assigned = false;
 
     this.newalumnoService.addAlumno(alumno)
       .subscribe(

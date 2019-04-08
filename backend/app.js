@@ -11,7 +11,7 @@ const api = require('./routes/index')
 
 
 
-    //Método use
+//Método use
 app.use(bodyParser.urlencoded({ extended: false}))
 //Permitir peticiones con formato de mensaje JSON
 app.use(bodyParser.json())
@@ -32,4 +32,5 @@ app.use((req, res, next) =>{
     }
     next()
 })
-module.exports = app
+
+module.exports = exports = app

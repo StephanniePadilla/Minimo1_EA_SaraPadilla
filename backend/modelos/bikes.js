@@ -1,14 +1,13 @@
 'use strict'
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const bcrypt = require('bcrypt-nodejs')
-const crypto = require('crypto')
 
 //esquema del alumno
 const BikesSchema  = new Schema({
-    name: {type: String,unique: true},
-    kms: { type: Number, default:0 },
-    description: String
+    name: { type: String,unique: true},
+    kms: { type: Number, default:0, required: true },
+    description: { type: String, required: true, unique: true },
+    assigned: { type: Boolean, required: true, unique: false }
 
 })
 /*  //encriptacion de datos 

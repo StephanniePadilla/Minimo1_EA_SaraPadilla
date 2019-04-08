@@ -1,42 +1,50 @@
 'use strict'
 const Alumno = require('../modelos/bikes')
 
-//funciones
-function listarAlumnos(req, res) {
-    //busca todos los usuarios, claudator vacio
-    Alumno.find({}, (err, alumnos) => { //l'array de productes no m'ho dona
-        if (err) return res.status(500).send({message: `Error al realizar la petición: ${err}`})
-        if (!alumnos) return res.status(404).send({message: 'No existen alumnos en la bbdd'})
-        
-        console.log(alumnos)
-        res.status(200).send(alumnos)
-    })
-  }
-// buscar alumno por id
-function getAlumnobyId(req, res) {
-    let alumnoId = req.params.alumnoId
-    Alumno.findById(alumnoId,(err, result) => {
-        if (err) return res.status(500).send(`Error al realizar la petición: ${err} `)
-        if (!result) return res.status(404).send(`El alumno no existe`)
-        res.status(200).send({ result })
-    })
+//FUNCIONES
+
+//crear nueva bici --POST--
+async function saveAlumno(req, res) {
+    const bike = new Alumno();
+    bike.name = req.body.name;
+    bike.kms = req.body.kms;
+    bike.description = req.body.description;
+    bike.assigned = req.body.assigned;
+
+    console.log(bike);
+
+    try {
+        await bike.save();
+        res.status(200).send({message: "Bike created successfully"})
+    } catch (err) {
+        res.status(500).send(err);
+        console.log(err);
+    }
+}
+
+//listar todas las bicis --GET--
+async function listarAlumnos(req, res) {
+    try {
+        let bikes = await Alumno.find();
+        res.status(200).send(bikes);
+    } catch(err) {
+        res.status(500).send({message: `Error al realizar la petición: ${err}`})
+    }
 }
 
 
-//crear un nuevo alumno
-function saveAlumno (req,res){
-    let alumno = new Alumno( {
-        name: req.body.name,
-        address: req.body.address,
-        phone: req.body.phone
-    });
-    console.log(alumno)
-    alumno.save((err, alumno) => {
-        console.log(alumno)
-        if (err) res.status(500).send({mensaje: 'Error al guardar en la base da datos ${err}'})
-        res.status(200).send({alumno})
-    })   
+// buscar bici unica por id NO ASIGNADA --GET--
+async function getAlumnobyId(req, res) {
+    try {
+        let unassignedBikes = await Alumno.find({assigned: "false"});
+        res.status(200).send(unassignedBikes);
+    } catch(err) {
+        res.status(500).send(err)
+    }
 }
+
+
+
 
 //modificar alumno
 function updateAlumno (req, res){
@@ -61,9 +69,7 @@ function deleteAlumno (req, res){
             
             res.status(200).send( `alumno eliminado`)
         })
-    
     })
-
 }
 
 module.exports = {

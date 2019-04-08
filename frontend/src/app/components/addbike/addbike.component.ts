@@ -45,7 +45,7 @@ export class AddbikeComponent implements OnInit {
 
         },
         err => {
-          this.handleError(err);
+          //this.handleError(err);
         });
   }
   

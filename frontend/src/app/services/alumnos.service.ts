@@ -39,7 +39,7 @@ export class AlumnosService {
 
   ///relacion/:asignaturaId/:alumnoId
   addBike(_idStation: string, _idBike: string){
-    return this.http.put(this.environment.urlRelacion + "/relacion" + `/${_idStation}` + `/${_idBike}`, alumno);
+    return this.http.put(this.environment.urlRelacion + "/relacion" + `/${_idStation}` + `/${_idBike}`, null /*alumno*/);
   }
    
 }
