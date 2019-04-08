@@ -1,0 +1,17 @@
+<h2>Current bikes on {{asignatura.name}}</h2>
+
+<div *ngFor = "let alumno of alumnos; let i=index">
+  <input type="hidden" value="{{alumno.name}}">
+
+  <h5>{{alumno.name}}</h5>
+  <p>
+    <button class="btn btn-primary" [routerLink]="['studentDetail',alumno._id]"><i class="fa fa-eye"></i>&nbsp;See bike detail</button>
+    <button class="btn btn-danger" (click)="confirmDelete(alumno._id, i)"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete </button>
+  </p>
+  <p></p>
+
+</div>
+
+<p><p>
+  <button class="logout" [routerLink]="['']"><i class="fa fa-toggle-left" aria-hidden="true"></i> Back to main menu</button>
+</p><p>

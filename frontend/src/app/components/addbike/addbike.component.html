@@ -1,0 +1,14 @@
+<h2>Bikes unassigned</h2>
+
+<div *ngFor = "let alumno of alumnos; let i=index, let asignatura of asignaturas">
+  <input type="hidden" value="{{alumno.name}}">
+
+  <p></p>
+  <p><b>{{alumno.name}}         </b> <button class="btn btn-outline-info" (click)="addBike(asignatura._id, alumno._id , i)"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; </button></p>
+  <p></p>
+
+</div>
+
+<p><p>
+  <button class="logout" [routerLink]="['']"><i class="fa fa-toggle-left" aria-hidden="true"></i> Back to main menu</button>
+</p><p>
