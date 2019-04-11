@@ -17,6 +17,10 @@ api.get('/alumno/:alumnoId', alumnoCtrl.getAlumnobyId)
 api.put('/alumno/modificar/:alumnoId', alumnoCtrl.updateAlumno)
 //eliminar alumno - FUNCIONA
 api.delete('/alumno/eliminar/:alumnoId', alumnoCtrl.deleteAlumno)
+//me da el alumno NO asignado a nada
+//api.get('/alumno/unassigned', alumnoCtrl.getUnassignedBikes);
+//api.get('/bikes/unassigned', bikeCtrl.getUnassignedBikes);
+
 
 
 
@@ -25,6 +29,8 @@ api.delete('/alumno/eliminar/:alumnoId', alumnoCtrl.deleteAlumno)
 api.post('/asignatura/nueva', asignaturaCtrl.saveAsignatura)
 //listado de asignaturas - FUNCIONA
 api.get('/asignatura/listaAsignaturas', asignaturaCtrl.getAsignaturas)
+
+
 
 
 //detalle asignatura - FUNCIONA
@@ -40,7 +46,8 @@ api.get('/asignatura/:asignaturaId', asignaturaCtrl.getAsignatura)
 
 
 // añadir alumno a asignatura si NO esta asignado - FUNCIONA
-api.put('/relacion/:asignaturaId/:alumnoId', asignaturaCtrl.addAlumno)
+api.put('/relacion/addAlumnoToAsignatura', asignaturaCtrl.addAlumno)
+//api.put('/relacion/:asignaturaId/:alumnoId', asignaturaCtrl.addAlumno)
 //listas alumnos de una asignatura
 api.get('/relacion/listaAlumnos/:asignaturaId', asignaturaCtrl.getAlumnosdeAsignatura)
 //Eliminar bicis de una estacion en concreto --DELETE--

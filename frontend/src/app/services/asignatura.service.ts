@@ -37,6 +37,17 @@ export class AsignaturaService {
   getBicisdeEstacion(_id: string) :Observable<Asignaturas> {
     return this.http.get<Asignaturas>(this.environment.urlRelacion + '/listaAlumnos' + `/${_id}`);
   }
+
+  //añadir bike a estacion
+  postBikeStation(ids: object) {
+    return this.http.post(this.environment.urlRelacion + '/addAlumnoToAsignatura', ids);
+  }
+
+  //borra la bike de la estacion
+  deleteBikeStation(stationId: string, bikeId: string) {
+    return this.http.delete(this.environment.urlRelacion + '/stations' + `/${stationId}` + '/deletebike' + `/${bikeId}`);
+  }
+
   //listas alumnos de una asignatura
   //api.get('/relacion/listaAlumnos/:asignaturaId', asignaturaCtrl.getAlumnosdeAsignatura)
 

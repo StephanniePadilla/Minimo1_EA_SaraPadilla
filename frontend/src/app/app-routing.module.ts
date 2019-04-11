@@ -16,7 +16,6 @@ const routes: Routes = [
   {path: 'api/asignaturas/:id', component: AsignaturasComponent},
   {path: 'api/asignatura/:id', component: AsignaturasComponent},
   {path: 'api/alumno/:id', component: AlumnosComponent},
-
   {path: '', component: MainComponent, pathMatch: 'full'},
   {path: 'add_subject', component: NewasignaturaComponent},
   {path: 'add_student', component: NewalumnoComponent},

@@ -41,5 +41,9 @@ export class AlumnosService {
   addBike(_idStation: string, _idBike: string){
     return this.http.put(this.environment.urlRelacion + "/relacion" + `/${_idStation}` + `/${_idBike}`, null /*alumno*/);
   }
+
+  getUnassignedBikes() {
+    return this.http.get(this.environment.urlAlumno + '/unassigned');
+  }
    
 }

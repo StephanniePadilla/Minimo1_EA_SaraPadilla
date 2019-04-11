@@ -72,6 +72,15 @@ function deleteAlumno (req, res){
     })
 }
 
+async function getUnassignedBikes(req, res) {
+    try {
+        let unassignedBikes = await Alumno.find({assigned: "false"});
+        res.status(200).send(unassignedBikes);
+    } catch(err) {
+        res.status(500).send(err)
+    }
+}
+
 module.exports = {
     listarAlumnos,
     saveAlumno,
