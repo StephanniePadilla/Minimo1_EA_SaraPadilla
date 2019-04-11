@@ -18,7 +18,7 @@ api.put('/alumno/modificar/:alumnoId', alumnoCtrl.updateAlumno)
 //eliminar alumno - FUNCIONA
 api.delete('/alumno/eliminar/:alumnoId', alumnoCtrl.deleteAlumno)
 //me da el alumno NO asignado a nada
-//api.get('/alumno/unassigned', alumnoCtrl.getUnassignedBikes);
+api.get('/alumno/unassigned', alumnoCtrl.getUnassignedBikes);
 //api.get('/bikes/unassigned', bikeCtrl.getUnassignedBikes);
 
 

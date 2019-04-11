@@ -86,5 +86,6 @@ module.exports = {
     saveAlumno,
     getAlumnobyId,
     updateAlumno,
-    deleteAlumno
+    deleteAlumno,
+    getUnassignedBikes
 }

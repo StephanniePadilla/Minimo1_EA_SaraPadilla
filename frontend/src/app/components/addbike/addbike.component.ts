@@ -49,7 +49,7 @@ export class AddbikeComponent implements OnInit {
     await this.asignaturasService.getBicisdeEstacion(id)
       .subscribe(res => {
         console.log(res);
-        this.asinaturas = res as Asignaturas;
+        this.asignaturas = res as Asignaturas;
       });
     console.log(this.asignaturas);
   }
