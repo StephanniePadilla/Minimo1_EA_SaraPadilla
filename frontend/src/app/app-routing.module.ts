@@ -24,7 +24,7 @@ const routes: Routes = [
   {path:'studentList/studentDetail/:id', component: AlumnodetalleComponent},
   {path: 'subjectList/subjectDetail/:id', component: AsignaturadetalleComponent},
   {path: 'subjectList/subjectBikes/:id', component: BicisdeestacionComponent},
-  {path: 'subjectBikes/:id', component: AddbikeComponent}
+  {path: 'subjectBikes', component: AddbikeComponent}
 ];
 
 @NgModule({
