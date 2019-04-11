@@ -87,32 +87,3 @@ export class AddbikeComponent implements OnInit {
 
 }
 
-
-
-  /*getStudents(){
-    this.alumnosService.getAlumnos()
-      .subscribe(res =>{
-        this.alumnos = res; //res me recibe la lista de users
-      });
-  }
-
-
-  addBike(idStation: string, idBike, i: number){
-    this.alumnosService.addBike(idStation, idBike)
-      .subscribe(
-        res =>{
-          console.log(res);
-          console.log("Se ha añadido correctamente ", i);
-          //this.getStudents();
-
-          //Two way data binding!
-          this.alumnos.splice(i,1);
-          console.log("Se ha añadido correctamente ", this.alumnos);
-
-        },
-        err => {
-          //this.handleError(err);
-        });
-  }*/
-  
-
