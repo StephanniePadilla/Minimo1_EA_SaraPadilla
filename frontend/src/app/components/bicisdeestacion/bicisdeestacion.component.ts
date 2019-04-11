@@ -3,6 +3,7 @@ import {Asignaturas} from "../../models/asignaturas";
 import {ActivatedRoute} from "@angular/router";
 import {AsignaturaService} from "../../services/asignatura.service";
 import {Alumnos} from "../../models/alumnos";
+import {AlumnosService} from "../../services/alumnos.service";
 
 @Component({
   selector: 'app-bicisdeestacion',
@@ -14,7 +15,14 @@ export class BicisdeestacionComponent implements OnInit {
   asignatura: Asignaturas;
   alumno: Alumnos;
 
-  constructor(private activatedRouter: ActivatedRoute, private asignaturaService: AsignaturaService) {
+  alumnos: Alumnos[]; //unassignedBikes: Alumnos[];
+  asignaturas: Asignaturas; //stationBikeDetail: Asignaturas;
+
+  body: object;
+  alumnosService: AlumnosService;
+
+
+  constructor(private activatedRouter: ActivatedRoute, alumnosService: AlumnosService, private asignaturaService: AsignaturaService) {
     this.asignatura = new Asignaturas();
   }
 
@@ -35,5 +43,28 @@ export class BicisdeestacionComponent implements OnInit {
         this.alumno = res["alumno"];
       });
     console.log(this.alumno);
+  }
+
+  async deleteBikeStation(id: string, i: number) {
+    if (confirm('Are yo sure you want to delete it?')) {
+      await this.asignaturaService.deleteBikeStation(this.asignaturas._id, id)
+        .subscribe(res => {
+            console.log(res);
+            this.asignaturas.bikes.splice(i, 1);
+            this.getUnassignedBikes();
+          },
+          err => {
+            console.log(err);
+          });
+    }
+  }
+
+  async getUnassignedBikes() {
+    await this.alumnosService.getUnassignedBikes()
+      .subscribe(res => {
+        console.log(res);
+        this.alumnos = res as Alumnos[];
+      });
+    console.log(this.alumnos);
   }
 }
