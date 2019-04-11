@@ -19,10 +19,9 @@ export class BicisdeestacionComponent implements OnInit {
   asignaturas: Asignaturas; //stationBikeDetail: Asignaturas;
 
   body: object;
-  alumnosService: AlumnosService;
 
 
-  constructor(private activatedRouter: ActivatedRoute, alumnosService: AlumnosService, private asignaturaService: AsignaturaService) {
+  constructor(private activatedRouter: ActivatedRoute, private alumnosService: AlumnosService, private asignaturaService: AsignaturaService) {
     this.asignatura = new Asignaturas();
   }
 

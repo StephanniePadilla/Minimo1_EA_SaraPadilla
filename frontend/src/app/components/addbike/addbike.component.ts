@@ -15,9 +15,8 @@ export class AddbikeComponent implements OnInit {
   alumnos: Alumnos[]; //unassignedBikes: Alumnos[];
   asignaturas: Asignaturas; //stationBikeDetail: Asignaturas;
   body: object;
-  asignaturasService: AsignaturaService;
 
-  constructor(private alumnosService: AlumnosService, asignaturasService: AsignaturaService, private activatedRouter: ActivatedRoute) {
+  constructor(private asignaturasService: AsignaturaService, private alumnosService: AlumnosService, private activatedRouter: ActivatedRoute) {
     this.asignaturas = new Asignaturas();
     this.alumnos = [];
   }

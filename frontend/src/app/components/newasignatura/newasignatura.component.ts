@@ -58,7 +58,7 @@ export class NewasignaturaComponent implements OnInit {
     asignatura.name = this.newasignaturaForm.value.name;
     asignatura.state = this.newasignaturaForm.value.state;
     asignatura.description = this.newasignaturaForm.value.description;
-    asignatura.bikes = "";
+    asignatura.bikes = null;
 
     this.newasignaturaService.addAsignatura(asignatura)
       .subscribe(
